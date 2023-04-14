@@ -62,7 +62,6 @@ class StereoFocalLoss(object):
 
 
         mask = mask.detach_().type_as(scaled_gtDisp)
-        # print('mask', mask.size())
         if mask.sum() < 1.0:
             print('Stereo focal loss: there is no point\'s '
                   'disparity is in [{},{})!'.format(lower_bound, upper_bound))
@@ -77,9 +76,7 @@ class StereoFocalLoss(object):
 
         # stereo focal loss
         estProb = F.log_softmax(estCost, dim=1)
-        weight = (1.0 - scaled_gtProb).pow(-self.focal_coefficient).type_as(scaled_gtProb)  # scaled_gtProb
-        # print(mask.size())
-        # mask_ex = mask.unsqueeze(dim=1).repeat(1,192,1,1)  * weight
+        weight = (1.0 - scaled_gtProb).pow(-self.focal_coefficient).type_as(scaled_gtProb) 
         loss = -((scaled_gtProb * estProb) * weight * mask.float()).sum(dim=1, keepdim=True).mean()
 
         return loss
@@ -103,7 +100,6 @@ class StereoFocalLoss(object):
         # compute loss for per level
         if gtDisp is not None:
             gtDisp = gtDisp.unsqueeze(dim = 1)
-            # print('gtDisp', gtDisp.size())
             loss_all_level = []
             for est_cost_per_lvl, var, dt in zip(estCost, variance, self.dilation):
                 loss_all_level.append(
@@ -119,11 +115,6 @@ class StereoFocalLoss(object):
             for i in range(len(estCost)):
                 name = "stereo_focal_loss_lvl{}".format(i)
                 weighted_loss_all_level[name] = self.weights[i] * 0.
-        
-        # loss = 0.
-        # for v in weighted_loss_all_level:
-        #         # print(v, losses_l[v])
-        #         loss += weighted_loss_all_level[v].sum(dim=0, keepdim=False)
 
         return weighted_loss_all_level
 

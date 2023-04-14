@@ -29,44 +29,27 @@ class ConfidenceLoss(object):
             # dense disparity ==> avg_pooling
             self.scale_func = F.adaptive_avg_pool2d
 
-    def loss_per_level(self, estConf, preds_per_lvl, gtDisp): #, mask_hsv
-        # N, C, H, W = estConf.shape
-        # scaled_gtDisp = gtDisp
-        # scale = 1.0
-        # if gtDisp.shape[-2] != H or gtDisp.shape[-1] != W:
-        #     # compute scale per level and scale gtDisp
-        #     scale = gtDisp.shape[-1] / (W * 1.0)
-        #     scaled_gtDisp = gtDisp / scale
-        #     scaled_gtDisp = self.scale_func(scaled_gtDisp, (H, W))
-
-        # mask for valid disparity
-        # gt zero and lt max disparity
+    def loss_per_level(self, estConf, preds_per_lvl, gtDisp): 
+        
         if gtDisp is not None:
             gtDisp = gtDisp.unsqueeze(dim = 1)
             label = (torch.abs(torch.sub(preds_per_lvl, gtDisp)) < 3).type(torch.FloatTensor)
             label = label.cuda()
 
-
             mask = (gtDisp > 0) & (gtDisp < (self.max_disp))
-            #  & mask_hsv
-            mask = mask.detach_()#.type_as(gtDisp)
-            # mask = mask #& mask_hsv
+            mask = mask.detach_()
 
             bceloss = torch.nn.BCEWithLogitsLoss()
-            # torch.nn.BCELoss()
-
-            logloss1 = (-1.0 * F.logsigmoid(estConf) * mask).mean()
-            # logloss2 = (-1.0 * F.logsigmoid(torch.sigmoid(estConf)) * mask).mean()
 
             conf_loss = bceloss(estConf[mask], label[mask])
             loss = conf_loss
             
         else:
-            loss = (-1.0 * F.logsigmoid(estConf)).mean()
+            loss = None
 
         return  loss
 
-    def __call__(self, estConf, preds, gtDisp):#, mask_hsv
+    def __call__(self, estConf, preds, gtDisp):
         if not isinstance(estConf, (list, tuple)):
             estConf = [estConf]
 
@@ -76,7 +59,7 @@ class ConfidenceLoss(object):
         # compute loss for per level
         if gtDisp is not None:
             loss_all_level = [
-                self.loss_per_level(est_conf_per_lvl, preds_per_lvl, gtDisp) #, mask_hsv
+                self.loss_per_level(est_conf_per_lvl, preds_per_lvl, gtDisp) 
                 for est_conf_per_lvl, preds_per_lvl in zip(estConf, preds)
             ]
             # re-weight loss per level

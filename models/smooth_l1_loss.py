@@ -51,10 +51,7 @@ class DispSmoothL1Loss(object):
             print('SmoothL1 loss: there is no point\'s disparity is in ({},{})!'.format(self.start_disp, self.max_disp / scale))
             loss = (torch.abs(estDisp - scaled_gtDisp) * mask.float()).mean()
             return loss
-
-        # smooth l1 loss
-        # print(mask.size())
-        # print(scaled_gtDisp.size())
+            
         loss = F.smooth_l1_loss(estDisp[mask], scaled_gtDisp[mask], reduction='mean')
 
         return loss
