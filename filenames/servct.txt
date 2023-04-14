@@ -1,0 +1,16 @@
+Experiment_1/Left_rectified/001.png Experiment_1/Right_rectified/001.png Experiment_1/Ground_truth_CT/Disparity/001.png
+Experiment_1/Left_rectified/002.png Experiment_1/Right_rectified/002.png Experiment_1/Ground_truth_CT/Disparity/002.png
+Experiment_1/Left_rectified/003.png Experiment_1/Right_rectified/003.png Experiment_1/Ground_truth_CT/Disparity/003.png
+Experiment_1/Left_rectified/004.png Experiment_1/Right_rectified/004.png Experiment_1/Ground_truth_CT/Disparity/004.png
+Experiment_1/Left_rectified/005.png Experiment_1/Right_rectified/005.png Experiment_1/Ground_truth_CT/Disparity/005.png
+Experiment_1/Left_rectified/006.png Experiment_1/Right_rectified/006.png Experiment_1/Ground_truth_CT/Disparity/006.png
+Experiment_1/Left_rectified/007.png Experiment_1/Right_rectified/007.png Experiment_1/Ground_truth_CT/Disparity/007.png
+Experiment_1/Left_rectified/008.png Experiment_1/Right_rectified/008.png Experiment_1/Ground_truth_CT/Disparity/008.png
+Experiment_2/Left_rectified/009.png Experiment_2/Right_rectified/009.png Experiment_2/Ground_truth_CT/Disparity/009.png
+Experiment_2/Left_rectified/010.png Experiment_2/Right_rectified/010.png Experiment_2/Ground_truth_CT/Disparity/010.png
+Experiment_2/Left_rectified/011.png Experiment_2/Right_rectified/011.png Experiment_2/Ground_truth_CT/Disparity/011.png
+Experiment_2/Left_rectified/012.png Experiment_2/Right_rectified/012.png Experiment_2/Ground_truth_CT/Disparity/012.png
+Experiment_2/Left_rectified/013.png Experiment_2/Right_rectified/013.png Experiment_2/Ground_truth_CT/Disparity/013.png
+Experiment_2/Left_rectified/014.png Experiment_2/Right_rectified/014.png Experiment_2/Ground_truth_CT/Disparity/014.png
+Experiment_2/Left_rectified/015.png Experiment_2/Right_rectified/015.png Experiment_2/Ground_truth_CT/Disparity/015.png
+Experiment_2/Left_rectified/016.png Experiment_2/Right_rectified/016.png Experiment_2/Ground_truth_CT/Disparity/016.png
