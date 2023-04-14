@@ -1,5 +1,5 @@
 # Bidirectional-SemiSupervised-Dual-branch-CNN
-This is an implementation for [Bidirectional Semi-supervised Dual-branch CNN for Robust 3D Reconstruction of Stereo Endoscopic Images via Adaptive Cross and Parallel Supervisions](https://arxiv.org/abs/2210.08291), which is a substantial extension of our conference work [Semi-supervised Learning via Improved Teacher-Student Network for Robust 3D Reconstruction of Stereo Endoscopic Image](https://dl.acm.org/doi/10.1145/3474085.3475527).
+This is an implementation for [Bidirectional Semi-supervised Dual-branch CNN for Robust 3D Reconstruction of Stereo Endoscopic Images via Adaptive Cross and Parallel Supervisions](https://arxiv.org/abs/2210.08291), which is a substantial extension of our conference work [Semi-supervised Learning via Improved Teacher-Student Network for Robust 3D Reconstruction of Stereo Endoscopic Image](https://dl.acm.org/doi/10.1145/3474085.3475527) (ACM MM oral presentation).
 
 ## Install
 The packages and their corresponding version we used in this repository are listed in below.
@@ -26,7 +26,7 @@ You can use this checkpoint to reproduce the result we reported in the main pape
 
 ## To do
 
-Currently, we have open-sourced partial codes and trained models. The complete code could be also released in the future upon the approval of United Imaging Healthcare Inc., which partially funds this work and there is a copyright agreement. 
+Currently, we have released the inference code and trained models of the dual-branch model, which can be used to reproduce the results in our paper. We will continue to update the training code and pre-trained models in the future.
 
 ## Citation
 If you use this code as part of any published research, we'd really appreciate it if you could cite the following paper:
